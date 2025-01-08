@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Check, Clock, Search } from "lucide-react";
+import Footer from "./core/layout/footer/footer";
+import Header from "./core/layout/header/header";
+import Button from "./core/ui/button/button";
+import Input from "./core/ui/input/input";
+import Card from "./core/ui/card/card";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <section className="main-layout">
+      <Header />
+      <main className="margin-auto padding-standard size-full flex-column gap-big">
+        <Card>
+          <div>
+            <h1>Gestión de Tareas</h1>
+            <p>Todas las tareas en un solo lugar</p>
+          </div>
+          <div className="flex-row gap-small margin-top-big flex-center">
+            <Input className="size-full-width" value="" type="text" placeholder="Buscar tarea" onChange={() => {}}>
+              <Search height={16} color="#343434"/>
+            </Input>
+            <Button className="size-full-height">
+              <p>Añadir</p>
+            </Button>
+          </div>
+        </Card>
+        <Card>
+          <h2 className="text-blue flex-row aling-center gap-small">
+            <Clock />
+            En proceso
+          </h2>
+        </Card>
+        <Card>
+          <h2 className="text-green flex-row aling-center gap-small">
+            <Check />
+            Completadas
+          </h2>
+        </Card>
+      </main>
+      <Footer />
+    </section>
+  );
 }
 
-export default App
+export default App;

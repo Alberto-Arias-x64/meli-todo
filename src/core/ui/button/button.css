@@ -1,0 +1,8 @@
+.button{
+  color: var(--color-white);
+  font-weight: 500;
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: var(--size-6);
+  cursor: pointer;
+}

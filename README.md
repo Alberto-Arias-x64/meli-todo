@@ -1,50 +1,25 @@
-# React + TypeScript + Vite
+# Prueba técnica para meli
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objetivos
 
-Currently, two official plugins are available:
+- Construir un módulo/aplicación de Gestión de Tareas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Se debe desarrollar uno o varios componentes en React que permita a los usuarios agregar y listar tareas. Debe manejar la gestión del estado para agregar tareas y mostrar una lista de las mismas. También debe incluir funcionalidades de eliminar y marcar tareas como completadas.
 
-## Expanding the ESLint configuration
+## Requerimientos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Framework y Lenguajes: Utilizar React. 🟢
+2. Estado: Implementar la gestión del estado. 🟡
+3. Testing: Implementar tests utilizando Jest y @testing-library/react para verificar al menos la funcionalidad de agregar tareas. 🟡
+4. Buenas Prácticas: Aplicar SOLID y modularización en la escritura del código. 🟢
+5. Documentación: Un README.md que explique cómo correr la aplicación y resuma las decisiones principales. 🟡
 
-- Configure the top-level `parserOptions` property like this:
+## Metodología
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Atomic designe
+- Principios SOLID
+- Principio DRY
+- Principio KISS
+- Unitary Testing
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 

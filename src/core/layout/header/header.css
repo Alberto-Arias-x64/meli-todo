@@ -1,0 +1,7 @@
+header {
+  background-color: var(--color-yellow);
+  img {
+    height: 34px;
+    width: 134px;
+  }
+}

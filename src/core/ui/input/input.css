@@ -1,0 +1,14 @@
+.input {
+  border: 1px solid var(--color-black);
+  border-radius: var(--size-6);
+  transition: all ease 200ms;
+  input {
+    border: none;
+    padding: var(--size-6);
+    width: 100%;
+    outline: none;
+  }
+  &:focus-within{
+    border: 1px solid var(--color-blue);
+  }
+}

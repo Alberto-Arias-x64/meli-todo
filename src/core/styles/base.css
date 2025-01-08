@@ -1,0 +1,45 @@
+@import url("./normalizer.css");
+@import url("./layout.css");
+@import url("./fonts.css");
+@import url("./text.css");
+
+:root {
+  --color-yellow: #ffe600;
+  --color-black: #000000;
+  --color-black-50: #00000086;
+  --color-black-25: #00000043;
+  --color-white: #ffffff;
+  --color-gray: #ededed;
+  --color-grey: #f5f5f5;
+  --color-blue: #3483fa;
+  --color-green: #00a650;
+  --color-orange: #ff7733;
+  --color-red: #f23d4f;
+
+  --size-6: 0.375rem;
+  --size-8: 0.5rem;
+  --size-12: 0.75rem;
+  --size-14: 0.875rem;
+  --size-16: 1rem;
+  --size-18: 1.125rem;
+  --size-20: 1.25rem;
+  --size-24: 1.5rem;
+  --size-32: 2rem;
+
+  --media-mobile: 480px;
+  --media-tablet: 768px;
+  --media-desktop: 1024px;
+}
+
+html {
+  background-color: var(--color-grey);
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  &::selection {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
