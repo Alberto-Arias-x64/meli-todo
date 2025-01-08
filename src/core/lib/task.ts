@@ -2,7 +2,6 @@ import { deleteDoc, doc, setDoc, Timestamp  } from "firebase/firestore";
 import {db} from "./firebase";
 
 enum TaskStatus {
-  OPEN = "OPEN",
   IN_PROGRESS = "IN_PROGRESS",
   DONE = "DONE",
 }
@@ -13,7 +12,6 @@ interface Itask {
   description: string;
   status: TaskStatus;
   createdAt: string;
-  updatedAt: string;
 }
 
 class Task {
@@ -25,17 +23,15 @@ class Task {
     if (!this.data.id){
       this.data.id = crypto.randomUUID();
       this.data.createdAt = new Date().toISOString();
-      this.data.updatedAt = new Date().toISOString();
       this.data.title = title;
       this.data.description = description;
       const docRef = doc(db, "tasks", this.data.id);
-      await setDoc(docRef, {
+      /* await setDoc(docRef, {
         title: this.data.title,
         description: this.data.description,
         status: this.data.status,
         createdAt: Timestamp.fromDate(new Date(this.data.createdAt)),
-        updatedAt: Timestamp.fromDate(new Date(this.data.updatedAt)),
-      })
+      }) */
       return true
     }
   }
@@ -44,14 +40,13 @@ class Task {
     this.data.title = title;
     this.data.description = description;
     this.data.status = status;
-    this.data.updatedAt = new Date().toISOString();
     const docRef = doc(db, "tasks", this.data.id);
-    await setDoc(docRef, {
+    /* await setDoc(docRef, {
       title: this.data.title,
       description: this.data.description,
       status: this.data.status,
-      updatedAt: Timestamp.fromDate(new Date(this.data.updatedAt)),
-    })
+      createdAt: Timestamp.fromDate(new Date(this.data.createdAt)),
+    }) */
     return true
   }
 
@@ -59,6 +54,10 @@ class Task {
     const docRef = doc(db, "tasks", this.data.id);
     await deleteDoc(docRef);
     return true
+  }
+
+  public get() {
+    return this.data;
   }
 }
 

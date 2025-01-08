@@ -1,4 +1,5 @@
 @import url("./normalizer.css");
+@import url("./actions.css");
 @import url("./layout.css");
 @import url("./fonts.css");
 @import url("./text.css");
@@ -11,13 +12,17 @@
   --color-white: #ffffff;
   --color-gray: #ededed;
   --color-grey: #f5f5f5;
+  --color-border: #0000001a;
   --color-blue: #3483fa;
+  --color-blue-25: #3483fa3f;
   --color-green: #00a650;
+  --color-green-25: #00a65052;
   --color-orange: #ff7733;
   --color-red: #f23d4f;
 
   --size-6: 0.375rem;
   --size-8: 0.5rem;
+  --size-10: 0.625rem;
   --size-12: 0.75rem;
   --size-14: 0.875rem;
   --size-16: 1rem;

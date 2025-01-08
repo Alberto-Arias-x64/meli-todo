@@ -1,0 +1,33 @@
+.task{
+  background-color: rgba(0,0,0,.04);
+  border-radius: var(--size-8);
+  overflow: hidden;
+  .decorator{
+    height: 100%;
+    width: 4px;
+    background-color: var(--color-blue);
+    transition: all ease 200ms;
+  }
+  h3{
+    width: max-content;
+  }
+  &.done{
+    .decorator{
+      background-color: var(--color-black-25);
+    }
+    h3{
+      color: var(--color-black-25);
+      text-decoration: line-through;
+    }
+  }
+  .header {
+    display: grid;
+    grid-template-columns: max-content max-content auto;
+    gap: var(--size-8);
+    align-items: center;
+  }
+  .actions{
+    display: grid;
+    grid-template-columns: auto max-content;
+  }
+}

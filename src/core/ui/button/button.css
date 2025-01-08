@@ -5,4 +5,8 @@
   border: none;
   border-radius: var(--size-6);
   cursor: pointer;
+  &.secondary{
+    background-color: var(--color-blue-25);
+    color: var(--color-blue);
+  }
 }

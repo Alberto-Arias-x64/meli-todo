@@ -17,6 +17,9 @@
 .aling-center {
   align-items: center;
 }
+.justify-end {
+  justify-content: flex-end;
+}
 .margin-auto {
   margin: auto;
 }

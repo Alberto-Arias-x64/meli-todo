@@ -1,12 +1,32 @@
-import { Check, Clock, Search } from "lucide-react";
+import Filter, { FilterType } from "./core/components/filter/filter";
+import Category from "./core/components/category/category";
+import { collection, getDocs } from "firebase/firestore";
+import Textarea from "./core/ui/text-area/text-area";
 import Footer from "./core/layout/footer/footer";
 import Header from "./core/layout/header/header";
+import type { Task } from "./core/lib/task";
 import Button from "./core/ui/button/button";
+import { CalendarCheck } from "lucide-react";
+import { useEffect, useState } from "react";
 import Input from "./core/ui/input/input";
+import { db } from "./core/lib/firebase";
+import mockTasks from "./core/mock/task";
 import Card from "./core/ui/card/card";
 import "./App.css";
 
 function App() {
+  const [filter, setFilter] = useState<FilterType>(FilterType.All);
+  const [tasks, setTasks] = useState<Task[]>(mockTasks);
+
+  /* useEffect(() => {
+    (async () => {
+      const fireDate: Itask[] = []
+      const ref = collection(db, "tasks");
+      const docs = await getDocs(ref);
+      docs.forEach((doc) => fireDate.push(doc.data() as Itask))
+      setTasks(fireDate)
+    })()
+  }, []); */
   return (
     <section className="main-layout">
       <Header />
@@ -16,27 +36,21 @@ function App() {
             <h1>Gestión de Tareas</h1>
             <p>Todas las tareas en un solo lugar</p>
           </div>
-          <div className="flex-row gap-small margin-top-big flex-center">
-            <Input className="size-full-width" value="" type="text" placeholder="Buscar tarea" onChange={() => {}}>
-              <Search height={16} color="#343434"/>
+          <div className="flex-column gap-small margin-top-big flex-center">
+            <Input className="size-full-width" value="" type="text" placeholder="Crea tu tarea" onChange={() => {}}>
+              <CalendarCheck height={16} color="#343434"/>
             </Input>
-            <Button className="size-full-height">
-              <p>Añadir</p>
-            </Button>
+            <Textarea className="size-full-width" value="" placeholder="Añade una descripción (opcional)" onChange={() => {}}/>
+            <div className="flex-row gap-small justify-end size-full-width">
+              <Button variant="SECONDARY"> Limpiar </Button>
+              <Button> Añadir </Button>
+            </div>
           </div>
+          <Filter output={(value) => setFilter(value)}/>
         </Card>
-        <Card>
-          <h2 className="text-blue flex-row aling-center gap-small">
-            <Clock />
-            En proceso
-          </h2>
-        </Card>
-        <Card>
-          <h2 className="text-green flex-row aling-center gap-small">
-            <Check />
-            Completadas
-          </h2>
-        </Card>
+        {filter === FilterType.All && (<Category data={tasks}/> )}
+        {filter === FilterType.IN_PROGRESS && (<Category category={FilterType.IN_PROGRESS} data={tasks.filter(item => FilterType.IN_PROGRESS === item.get().status)}/> )}
+        {filter === FilterType.DONE && (<Category category={FilterType.DONE} data={tasks.filter(item => FilterType.DONE === item.get().status)}/> )}
       </main>
       <Footer />
     </section>
