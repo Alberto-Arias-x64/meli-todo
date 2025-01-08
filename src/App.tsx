@@ -4,7 +4,6 @@ import { collection, getDocs } from "firebase/firestore";
 import Textarea from "./core/ui/text-area/text-area";
 import Footer from "./core/layout/footer/footer";
 import Header from "./core/layout/header/header";
-import type { Task } from "./core/lib/task";
 import Button from "./core/ui/button/button";
 import { CalendarCheck } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -13,20 +12,22 @@ import { db } from "./core/lib/firebase";
 import mockTasks from "./core/mock/task";
 import Card from "./core/ui/card/card";
 import "./App.css";
+import { useStore } from "./core/lib/taskContext";
 
 function App() {
   const [filter, setFilter] = useState<FilterType>(FilterType.All);
-  const [tasks, setTasks] = useState<Task[]>(mockTasks);
+  const store = useStore((state) => state);
 
-  /* useEffect(() => {
-    (async () => {
+  useEffect(() => {
+    store.loadTasks(mockTasks);
+    /* (async () => {
       const fireDate: Itask[] = []
       const ref = collection(db, "tasks");
       const docs = await getDocs(ref);
       docs.forEach((doc) => fireDate.push(doc.data() as Itask))
       setTasks(fireDate)
-    })()
-  }, []); */
+    })() */
+  }, []);
   return (
     <section className="main-layout">
       <Header />
@@ -48,9 +49,9 @@ function App() {
           </div>
           <Filter output={(value) => setFilter(value)}/>
         </Card>
-        {filter === FilterType.All && (<Category data={tasks}/> )}
-        {filter === FilterType.IN_PROGRESS && (<Category category={FilterType.IN_PROGRESS} data={tasks.filter(item => FilterType.IN_PROGRESS === item.get().status)}/> )}
-        {filter === FilterType.DONE && (<Category category={FilterType.DONE} data={tasks.filter(item => FilterType.DONE === item.get().status)}/> )}
+        {filter === FilterType.All && (<Category data={store.tasks}/> )}
+        {filter === FilterType.IN_PROGRESS && (<Category category={FilterType.IN_PROGRESS} data={store.tasks.filter(item => FilterType.IN_PROGRESS === item.get().status)}/> )}
+        {filter === FilterType.DONE && (<Category category={FilterType.DONE} data={store.tasks.filter(item => FilterType.DONE === item.get().status)}/> )}
       </main>
       <Footer />
     </section>

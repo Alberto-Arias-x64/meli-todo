@@ -40,7 +40,6 @@ class Task {
     this.data.title = title;
     this.data.description = description;
     this.data.status = status;
-    const docRef = doc(db, "tasks", this.data.id);
     /* await setDoc(docRef, {
       title: this.data.title,
       description: this.data.description,

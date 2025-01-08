@@ -3,6 +3,7 @@ import { Check, Clock } from "lucide-react";
 import TaskComponent from "../task/task";
 import { Task } from "../../lib/task";
 import Card from "../../ui/card/card";
+import "./category.css";
 
 interface Props {
   category?: FilterType;
