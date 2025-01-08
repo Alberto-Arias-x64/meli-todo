@@ -11,8 +11,8 @@ interface Context {
 
 const useStore = create<Context>()((set) => ({
   tasks: [],
-  loadTasks: (tasks) => set({tasks}),
-  addTask: (newTask) => set((state) => ({tasks: [...state.tasks, newTask]})),
+  loadTasks: (tasks) => set({tasks: tasks.sort((a, b) => Number(new Date(b.get().createdAt)) - Number(new Date(a.get().createdAt)))}),
+  addTask: (newTask) => set((state) => ({tasks: [newTask, ...state.tasks]})),
   removeTask: (id) => set((state) => ({tasks: state.tasks.filter(task => task.get().id !== id)})),
   updateTask: (newTask) => set((state) => ({tasks: state.tasks.map(task => task.get().id === newTask.get().id ? newTask : task)}))
 }))

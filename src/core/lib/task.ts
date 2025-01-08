@@ -19,21 +19,22 @@ class Task {
   constructor(data: Itask) {
     this.data = data;
   }
-  public async create({ title, description }:{ title: string; description: string;}) {
-    if (!this.data.id){
-      this.data.id = crypto.randomUUID();
-      this.data.createdAt = new Date().toISOString();
-      this.data.title = title;
-      this.data.description = description;
-      const docRef = doc(db, "tasks", this.data.id);
-      /* await setDoc(docRef, {
-        title: this.data.title,
-        description: this.data.description,
-        status: this.data.status,
-        createdAt: Timestamp.fromDate(new Date(this.data.createdAt)),
-      }) */
-      return true
+  public static async create({ title, description }:{ title: string; description: string;}) {
+    const newData: Itask = {
+      id: crypto.randomUUID(),
+      title: title,
+      description: description,
+      status: TaskStatus.IN_PROGRESS,
+      createdAt: new Date().toISOString(),
     }
+    const docRef = doc(db, "tasks", newData.id);
+    /* await setDoc(docRef, {
+      title: this.data.title,
+      description: this.data.description,
+      status: this.data.status,
+      createdAt: Timestamp.fromDate(new Date(this.data.createdAt)),
+    }) */
+    return newData
   }
 
   public async update({title, description, status}: { title: string; description: string; status: TaskStatus}) {

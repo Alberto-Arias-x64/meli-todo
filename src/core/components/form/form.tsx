@@ -3,18 +3,22 @@ import Input from "../../ui/input/input"
 import Textarea from "../../ui/text-area/text-area"
 import Button from "../../ui/button/button"
 import { useState } from "react"
+import { useStore } from "../../lib/taskContext"
+import { Task } from "../../lib/task"
 
 const Form = () => {
   const [title, setTitle] = useState("")
   const [titleError, setTitleError] = useState(false)
   const [description, setDescription] = useState("")
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const store = useStore()
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if(title === ""){
       setTitleError(true)
       return
     }
     setTitleError(false)
+    store.addTask(new Task(await Task.create({title, description})))
     handleClear()
   }
 
