@@ -1,23 +1,24 @@
-import { useState } from "react";
 import "./input.css";
+import { useInput } from "../../hooks/input";
 
 interface Props {
   type: string;
   placeholder: string;
-  value: string;
   children?: React.ReactNode;
   className?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  update?: string;
+  error?: boolean;
+  output: (e: string) => void;
 }
 
-const Input = ({ type, placeholder, value, children, className, onChange }: Props) => {
-  const [data, setData] = useState(value);
+const Input = ({ type, placeholder, update, children, className, error, output }: Props) => {
+  const [data, setData] = useInput(update);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData(e.target.value);
-    onChange(e);
+    output(e.target.value);
   };
   return (
-    <div className={"input padding-small flex-row flex-center " + className}>
+    <div className={`input padding-small flex-row flex-center ${error && "error"} ${className}`}>
       {children}
       <input type={type} placeholder={placeholder} value={data} onChange={handleChange} />
     </div>

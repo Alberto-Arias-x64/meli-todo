@@ -1,23 +1,22 @@
-import { useState } from "react";
+import { useInput } from "../../hooks/input";
 import "./text-area.css";
 
 interface Props {
   placeholder: string;
-  value: string;
-  children?: React.ReactNode;
   className?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  update?: string;
+  error?: boolean;
+  output: (e: string) => void;
 }
 
-const Textarea = ({ placeholder, value, children, className, onChange }: Props) => {
-  const [data, setData] = useState(value);
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const Textarea = ({ placeholder, update, className, output }: Props) => {
+  const [data, setData] = useInput(update);
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setData(e.target.value);
-    onChange(e);
+    output(e.target.value);
   };
   return (
     <div className={"input padding-small flex-row flex-center " + className}>
-      {children}
       <textarea placeholder={placeholder} value={data} onChange={handleChange} />
     </div>
   );

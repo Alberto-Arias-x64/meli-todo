@@ -1,18 +1,15 @@
 import Filter, { FilterType } from "./core/components/filter/filter";
 import Category from "./core/components/category/category";
 import { collection, getDocs } from "firebase/firestore";
-import Textarea from "./core/ui/text-area/text-area";
+import { useStore } from "./core/lib/taskContext";
 import Footer from "./core/layout/footer/footer";
 import Header from "./core/layout/header/header";
-import Button from "./core/ui/button/button";
-import { CalendarCheck } from "lucide-react";
+import Form from "./core/components/form/form";
 import { useEffect, useState } from "react";
-import Input from "./core/ui/input/input";
 import { db } from "./core/lib/firebase";
 import mockTasks from "./core/mock/task";
 import Card from "./core/ui/card/card";
 import "./App.css";
-import { useStore } from "./core/lib/taskContext";
 
 function App() {
   const [filter, setFilter] = useState<FilterType>(FilterType.All);
@@ -37,16 +34,7 @@ function App() {
             <h1>Gestión de Tareas</h1>
             <p>Todas las tareas en un solo lugar</p>
           </div>
-          <div className="flex-column gap-small margin-top-big flex-center">
-            <Input className="size-full-width" value="" type="text" placeholder="Crea tu tarea" onChange={() => {}}>
-              <CalendarCheck height={16} color="#343434"/>
-            </Input>
-            <Textarea className="size-full-width" value="" placeholder="Añade una descripción (opcional)" onChange={() => {}}/>
-            <div className="flex-row gap-small justify-end size-full-width">
-              <Button variant="SECONDARY"> Limpiar </Button>
-              <Button> Añadir </Button>
-            </div>
-          </div>
+          <Form />
           <Filter output={(value) => setFilter(value)}/>
         </Card>
         {filter === FilterType.All && (<Category data={store.tasks}/> )}
