@@ -1,13 +1,18 @@
-import { defineConfig } from 'vite'
+import { defineConfig as defineVitestConfig } from 'vitest/config';
+import { defineConfig, mergeConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc'
-import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vite.dev/config/
-export default defineConfig({
+const viteConfig = defineConfig({
+  plugins: [react()],
+})
+
+const vitestConfig = defineVitestConfig({
   test: {
-    environment: 'jsdom',
     globals: true,
+    environment: 'jsdom',
     setupFiles: './src/tests/setup.js',
   },
-  plugins: [react(), tsconfigPaths()],
 })
+
+export default mergeConfig(viteConfig, vitestConfig);

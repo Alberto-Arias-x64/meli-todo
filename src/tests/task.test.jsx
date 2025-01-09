@@ -39,18 +39,19 @@ test("input component", async () => {
 test('add Task', async () => {
 
   const screen =render(<App />);
+  const id = crypto.randomUUID();
 
   const taskForm = screen.getByTestId("task-input-form");
   const titleInput = taskForm.querySelector("input");
   const addButton = taskForm.querySelector('[type="submit"]');
 
-  await userEvent.type(titleInput, "Test Task");
-  expect(titleInput).toHaveValue("Test Task");
+  await userEvent.type(titleInput, `Test Task ${id}`);
+  expect(titleInput).toHaveValue(`Test Task ${id}`);
 
   await userEvent.click(addButton);
   
   await waitFor(() => {
-    const taskTitle = screen.getByText(/Test Task/i);
+    const taskTitle = screen.getByText(`Test Task ${id}`);
     expect(taskTitle).toBeInTheDocument();
   });
 });

@@ -34,7 +34,7 @@ npm install
 npm run dev
 ```
 
-## Metodologías y buenas practicas utilizadas 📋
+## Metodologías y buenas practicas utilizadas 🛟
 
 ### Atomic designe
 Se aplican los principios de Atomic Design para la estructuración de los componentes que se reutilizan a lo largo de la aplicación.
@@ -129,7 +129,7 @@ Para el desarrollo de los test se realizo con React Testing Library y Vitest, ad
 
 Se realizan 3 test sencillos para el componente Task,un test básico de renderizado general de el app, un test de tipo unitario para el componente Task y un test de tipo de integración para agregar tareas en la aplicación.
 
-(Ejemplo de test)[https://meli-todo-production.up.railway.app/tests.png]
+![Ejemplo de test](https://meli-todo-production.up.railway.app/tests.png)
 
 ## Documentacion del codigo 💼
 
@@ -144,7 +144,7 @@ Deje unos comentarios en el código (en ingles - buenas practicas) que me permit
 - Manejo de errores
 - Persistencia de datos en local
 
-## Experimental 🧪
+## Experimental ⏭️
 
 Cree un ambiente de pruebas para poder mostrar features los cuales no logre terminar **(Fechas de finalización)** con una calidad suficiente para que fueran estables pero quiero compartirlos para mostrar avances en el [Siguiente Link](https://experimental-production-02f7.up.railway.app/)
 
