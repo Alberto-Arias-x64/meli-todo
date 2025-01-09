@@ -1,12 +1,12 @@
 {
   "files": [],
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/core/layout/*"],
-      "@styles/*": ["src/core/styles/*"],
-      "@assets/*": ["src/assets/*"],
-      "@ui/*": ["src/core/ui/*"],
+      "@components/*": ["./src/core/layout/*"],
+      "@styles/*": ["./src/core/styles/*"],
+      "@hooks/*": ["./src/core/hooks/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@ui/*": ["./src/core/ui/*"],
     }
     
   },

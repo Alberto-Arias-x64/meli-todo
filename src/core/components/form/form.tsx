@@ -1,10 +1,10 @@
-import { CalendarCheck } from "lucide-react"
-import Input from "../../ui/input/input"
 import Textarea from "../../ui/text-area/text-area"
-import Button from "../../ui/button/button"
-import { useState } from "react"
-import { useStore } from "../../lib/taskContext"
 import { Task, TaskStatus } from "../../lib/task"
+import { useStore } from "../../lib/taskContext"
+import { CalendarCheck } from "lucide-react"
+import Button from "../../ui/button/button"
+import Input from "../../ui/input/input"
+import { useState } from "react"
 
 interface Props{
   variant?: "NEW" | "EDIT"
@@ -17,6 +17,7 @@ const Form = ({variant, task, submitted}: Props) => {
   const [titleError, setTitleError] = useState(false)
   const [description, setDescription] = useState(task?.get().description ?? "")
   const store = useStore()
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if(title === ""){

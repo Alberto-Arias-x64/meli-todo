@@ -30,7 +30,9 @@ class Task {
     status: TaskStatus.IN_PROGRESS,
     title: ""
   };
+
   constructor() {}
+  
   public async create({ title, description }:{ title: string; description: string;}) {
     if (this.data.id) throw new Error("Already exist")
     this.data.id = crypto.randomUUID()

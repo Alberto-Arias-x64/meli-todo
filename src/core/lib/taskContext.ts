@@ -11,12 +11,15 @@ interface Context {
 
 const useStore = create<Context>()((set,get) => ({
   tasks: [],
+
   loadTasks: (tasks) => set({tasks: tasks.sort((a, b) => Number(new Date(b.get().createdAt)) - Number(new Date(a.get().createdAt)))}),
+
   addTask: async (data) => {
     const newTask = new Task()
     await newTask.create({...data})
     set((state) => ({tasks: [newTask, ...state.tasks]}))
   },
+
   updateTask: async (data) => {
     const element = get().tasks.find(task => task.get().id === data.id)
     if (element) {
@@ -24,6 +27,7 @@ const useStore = create<Context>()((set,get) => ({
       set((state) => ({tasks: state.tasks.map(task => task.get().id === data.id ? element : task)}))
     }
   },
+  
   removeTask: async(id) => {
     const element = get().tasks.find(task => task.get().id === id)
     if (element) {

@@ -1,3 +1,12 @@
 .pointer{
   cursor: pointer;
 }
+
+.appear {
+  animation: appear 100ms ease-in-out;
+}
+
+@keyframes appear {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

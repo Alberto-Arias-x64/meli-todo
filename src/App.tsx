@@ -14,7 +14,7 @@ import "./App.css";
 function App() {
   const [filter, setFilter] = useState<FilterType>(FilterType.All);
   const store = useStore((state) => state);
-
+  /* Load Data First time n save on store */
   useEffect(() => {
     (async () => {
       const fireDate: Itask[] = []

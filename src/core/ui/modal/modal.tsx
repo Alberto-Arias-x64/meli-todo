@@ -11,7 +11,7 @@ const Modal = ({ children, update }: Props) => {
   useEffect(() => {
     setState(update);
   }, [update]);
-  return state && <div className="modal-card flex-column flex-center padding-small">{children}</div>;
+  return state && <div className="modal-card flex-column flex-center padding-small appear">{children}</div>;
 };
 
 export default Modal;

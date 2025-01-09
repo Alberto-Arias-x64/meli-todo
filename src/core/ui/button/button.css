@@ -5,8 +5,15 @@
   border: none;
   border-radius: var(--size-6);
   cursor: pointer;
+  transition: all ease 200ms;
+  &:hover{
+    background-color: var(--color-blue-120);
+  }
   &.secondary{
     background-color: var(--color-blue-25);
     color: var(--color-blue);
+    &:hover{
+      background-color: var(--color-blue-20);
+    }
   }
 }

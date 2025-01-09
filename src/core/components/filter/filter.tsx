@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Pill from "../../ui/pill/pill";
 
-export enum FilterType {
+enum FilterType {
   All = 'ALL',
   IN_PROGRESS = 'IN_PROGRESS',
   DONE = "DONE",
@@ -27,3 +27,5 @@ const Filter = ({output}: Props) => {
 };
 
 export default Filter;
+
+export { FilterType };
