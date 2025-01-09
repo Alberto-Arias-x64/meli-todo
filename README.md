@@ -51,7 +51,7 @@ Aunque en ocasiones se generan conflictos entre DRY y KISS, es importante tener 
 ### Unitary Testing
 Los test me permiten hacer cambios en el código sin que afecte a otros componentes, lo que me permite mantener la cohesion del código y evitar conflictos entre componentes.
 
-## Tecnologias utilizadas 🛠️
+## Tecnologías utilizadas 🛠️
 
 - React
 - Typescript
@@ -131,11 +131,11 @@ Se realizan 3 test sencillos para el componente Task,un test básico de renderiz
 
 ![Ejemplo de test](https://meli-todo-production.up.railway.app/tests.png)
 
-## Documentacion del codigo 💼
+## Documentación del código 💼
 
 Deje unos comentarios en el código (en ingles - buenas practicas) que me permiten separar secciones de mi código, mas sin embargo no considere necesario documentar de manera extensa cada método ya que al usar typescript me facilita saber que tipos de datos estoy esperando tanto de entrada como salida en cada método, ademas de sutilizar siempre nombres descriptivos en métodos y variables que me permiten interpretar que realiza cada función.
 
-## Proximos pasos 🏁
+## Próximos pasos 🏁
 
 - Mejoras en UX
 - Filtro de texto
@@ -150,4 +150,7 @@ Cree un ambiente de pruebas para poder mostrar features los cuales no logre term
 
 ## Conclusiones 📝
 
+Es impotente tener varios puntos de vista a la hora de construir un producto digital, ya que lo que yo pensaba que era importare para otros usuarios no tenían la misma percepción.
 Existen librerías que nos ayudan al manejo de fechas como lo es Tempo,
+Vite ofrece una suit de test muy parecida a jest, pero con una sintaxis más simple y un poco más flexible.
+Zustand como gestor de estado es mucho mas simple que redux, y permite manejar el estado de manera más simple.
