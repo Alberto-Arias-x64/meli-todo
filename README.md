@@ -60,7 +60,7 @@ Los test me permiten hacer cambios en el código sin que afecte a otros componen
 - Zustand
 - Tempo
 - Lucide-react
-- Jest
+- Vitest/React testing library
 - ESLint
 - Railway
 
@@ -113,6 +113,9 @@ meli-todo
 │  │     ├─ pill
 │  │     └─ text-area
 │  ├─ main.tsx
+│  ├─ tests (Todo lo relacionado con testing)
+│  │  ├─ setup.js
+│  │  └─ task.test.jsx
 │  └─ vite-env.d.ts
 ├─ tsconfig.app.json
 ├─ tsconfig.json
@@ -122,6 +125,11 @@ meli-todo
 ```
 
 ## Test y pruebas 🧪
+Para el desarrollo de los test se realizo con React Testing Library y Vitest, adicionalmente se añade la integración con github actions para que se realice el test previo a la publicación.
+
+Se realizan 3 test sencillos para el componente Task,un test básico de renderizado general de el app, un test de tipo unitario para el componente Task y un test de tipo de integración para agregar tareas en la aplicación.
+
+(Ejemplo de test)[https://meli-todo-production.up.railway.app/tests.png]
 
 ## Documentacion del codigo 💼
 

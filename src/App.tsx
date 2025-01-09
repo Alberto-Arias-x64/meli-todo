@@ -41,7 +41,7 @@ function App() {
             <h1>Gestión de Tareas</h1>
             <p>Todas las tareas en un solo lugar</p>
           </div>
-          <Form />
+          <Form data-testid="task-input-form"/>
           <Filter output={(value) => setFilter(value)}/>
         </Card>
         {filter === FilterType.All && (<Category data={store.tasks}/> )}

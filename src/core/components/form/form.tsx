@@ -10,9 +10,10 @@ interface Props{
   variant?: "NEW" | "EDIT"
   task?: Task
   submitted?: VoidFunction
+  "data-testid"?: string
 }
 
-const Form = ({variant, task, submitted}: Props) => {
+const Form = ({variant, task, submitted, "data-testid": dataTestId}: Props) => {
   const [title, setTitle] = useState(task?.get().title ?? "")
   const [titleError, setTitleError] = useState(false)
   const [description, setDescription] = useState(task?.get().description ?? "")
@@ -37,7 +38,7 @@ const Form = ({variant, task, submitted}: Props) => {
   }
 
   return(
-    <form onSubmit={handleSubmit} className="flex-column gap-small margin-top-big flex-center">
+    <form onSubmit={handleSubmit} className="flex-column gap-small margin-top-big flex-center" data-testid={dataTestId && dataTestId}>
       <Input className="size-full-width" type="text" placeholder="Crea tu tarea" update={title} output={setTitle} error={titleError} onChange={() => setTitleError(false)}>
         <CalendarCheck height={16} color="#343434"/>
       </Input>
