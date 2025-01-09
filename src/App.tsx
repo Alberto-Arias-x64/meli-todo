@@ -24,7 +24,7 @@ function App() {
       docs.forEach((doc) => {
         const data = doc.data() as ItaskFirebase
         const overDeadLine = isAfter(new Date(), data.deadLine?.toDate())
-        const status = data.status === "DONE" ? TaskStatus.DONE : data.status === "IN_PROGRESS" && overDeadLine ? TaskStatus.PENDING : TaskStatus.IN_PROGRESS
+        const status = data.status === "DONE" ? TaskStatus.DONE : (data.status === "IN_PROGRESS" || data.status === "PENDING") && overDeadLine ? TaskStatus.PENDING : TaskStatus.IN_PROGRESS
         fireDate.push({...data, createdAt: data.createdAt.toDate().toISOString(), id: doc.id, deadLine: data.deadLine?.toDate().toISOString(), status})
       })
       const tasksList = fireDate.map((task) => {
