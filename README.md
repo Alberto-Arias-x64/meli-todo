@@ -40,13 +40,13 @@ npm run dev
 Se aplican los principios de Atomic Design para la estructuración de los componentes que se reutilizan a lo largo de la aplicación.
 
 ### Principios SOLID | Patron repository | Patron factory
-Los principios SOLID me permitieron poder gestionar las tareas como instancias de objetos la cual aplica el patron factory para crear instancias de objetos y el patron repository para manejar los procesos CRUD de la base de datos.
+Los principios SOLID me permitieron poder gestionar las tareas como instancias de objetos la cual aplica el patron factory para crear multiples instancias de una clase y el patron repository para manejar los procesos CRUD para la base de datos.
 
 ### Principio DRY
-Don't Repeat Yourself (DRY) es un principio el cual lo pude aplicar en la creacion de los custom hooks para el manejo del estado de los Inputs de la aplicacion.
+Don't Repeat Yourself (DRY) es un principio el cual lo pude aplicar en la creación de los custom hooks para el manejo del estado de los Inputs de la aplicación.
 
 ### Principio KISS
-Aunque en ocaciones se generan conflictos entre DRY y KISS, es importante tener criterio y tomar desiciones pragmaticas para mantener la simplicidad y la legibilidad del código, aunque en algunas ocaciones haya que repetir codigo en pro de la legibilidad.
+Aunque en ocasiones se generan conflictos entre DRY y KISS, es importante tener criterio y tomar decisiones pragmáticas para mantener la simplicidad y la legibilidad del código, aunque en algunas ocasiones haya que repetir código en pro de la legibilidad.
 
 ### Unitary Testing
 Los test me permiten hacer cambios en el código sin que afecte a otros componentes, lo que me permite mantener la cohesion del código y evitar conflictos entre componentes.
@@ -81,7 +81,7 @@ meli-todo
 │  ├─ App.css
 │  ├─ App.tsx
 │  ├─ assets
-│  ├─ core ()
+│  ├─ core (Alcance global)
 │  │  ├─ components (Componentes compuesto que se pueden reutilizar)
 │  │  │  ├─ category
 │  │  │  ├─ filter
@@ -92,7 +92,7 @@ meli-todo
 │  │  ├─ layout (Componentes referentes al layout)
 │  │  │  ├─ footer
 │  │  │  └─ header
-│  │  ├─ lib (utilidades y funciones que se pueden reutilizar)
+│  │  ├─ lib (Utilidades y funciones que se pueden reutilizar)
 │  │  │  ├─ firebase.ts
 │  │  │  ├─ task.ts
 │  │  │  └─ taskContext.ts
@@ -105,7 +105,7 @@ meli-todo
 │  │  │  ├─ layout.css
 │  │  │  ├─ normalizer.css
 │  │  │  └─ text.css
-│  │  └─ ui(componentes atómicos)
+│  │  └─ ui (Componentes atómicos)
 │  │     ├─ button
 │  │     ├─ card
 │  │     ├─ input
@@ -125,14 +125,16 @@ meli-todo
 
 ## Documentacion del codigo 💼
 
-Deje unos comentarios en el codigo (en ingles - buenas practicas) que me permiten separar secciones de mi código, mas sin embargo no considere necesario documentar de manera extensa cada método ya que al usar typescript me facilita saber que tipos de datos estoy esperando tanto de entrada como salida en cada método, ademas de sutilizar siempre nombres descriptivos en métodos y variables que me permiten interpretar que realiza cada función.
+Deje unos comentarios en el código (en ingles - buenas practicas) que me permiten separar secciones de mi código, mas sin embargo no considere necesario documentar de manera extensa cada método ya que al usar typescript me facilita saber que tipos de datos estoy esperando tanto de entrada como salida en cada método, ademas de sutilizar siempre nombres descriptivos en métodos y variables que me permiten interpretar que realiza cada función.
 
 ## Proximos pasos 🏁
 
 - Mejoras en UX
 - Filtro de texto
 - Login
-- Pagination
+- Paginación
+- Manejo de errores
+- Persistencia de datos en local
 
 ## Conclusiones 📝
 
