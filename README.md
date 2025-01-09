@@ -136,7 +136,10 @@ Deje unos comentarios en el código (en ingles - buenas practicas) que me permit
 - Manejo de errores
 - Persistencia de datos en local
 
+## Experimental 🧪
+
+Cree un ambiente de pruebas para poder mostrar features los cuales no logre terminar **(Fechas de finalización)** con una calidad suficiente para que fueran estables pero quiero compartirlos para mostrar avances en el [Siguiente Link](https://experimental-production-02f7.up.railway.app/)
+
 ## Conclusiones 📝
 
-...
-
+Existen librerías que nos ayudan al manejo de fechas como lo es Tempo,
