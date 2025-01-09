@@ -44,7 +44,7 @@ const TaskComponent = ({data}: props) => {
               </div>
             )}
           </div>
-          <p className="text-small">{description}</p>
+          <p className="text-small margin-top-small">{description}</p>
           <p className="text-tiny text-bold text-gray text-end">{format({date: createdAt, format: 'medium', locale: "es"})}</p>
         </div>
       </section>

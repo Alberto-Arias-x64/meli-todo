@@ -8,7 +8,7 @@ const Footer = () => {
         <a href="https://alberto-arias.com/about" target="_blank" rel="noopener noreferrer">
           Alberto Arias
         </a>{" "}
-        - para meli :)
+        - para Meli
       </p>
     </footer>
   );
