@@ -2,7 +2,7 @@ import { TaskStatus, Task } from "../../lib/task";
 import { useStore } from "../../lib/taskContext";
 import { PencilLine, X } from "lucide-react";
 import Modal from "../../ui/modal/modal";
-import { format } from "@formkit/tempo";
+import { format, isAfter } from "@formkit/tempo";
 import Card from "../../ui/card/card";
 import { useState } from "react";
 import Form from "../form/form";
@@ -15,12 +15,13 @@ interface props{
 const TaskComponent = ({data}: props) => {
   const [hover, setHover] = useState(false);
   const [modal, setModal] = useState(false);
-  const {status, id, createdAt, description, title} = data.get()
+  const {status, id, createdAt, description, title, deadLine} = data.get()
   const store = useStore((state) => state);
 
   const handleCheck = () => {
-    const newStatus = status === TaskStatus.DONE ? TaskStatus.IN_PROGRESS : TaskStatus.DONE;
-    store.updateTask({...data.get(), status: newStatus});
+    const overDeadLine = isAfter(new Date(), new Date(deadLine))
+    const newStatus = status === "IN_PROGRESS" || status === "PENDING" ? TaskStatus.DONE : overDeadLine ? TaskStatus.PENDING : TaskStatus.IN_PROGRESS
+    store.updateTask({...data.get(), status: newStatus, deadLine: deadLine ? new Date(deadLine) : undefined});
   }
 
   const handleDelete = () => {
@@ -29,7 +30,7 @@ const TaskComponent = ({data}: props) => {
 
   return(
     <>
-      <section className={`task flex-row ${status === TaskStatus.DONE && "done"}`} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+      <section className={`task flex-row ${status === TaskStatus.PENDING && "pending"} ${status === TaskStatus.DONE && "done"}`} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         <div className="size-full-height">
           <div className="decorator"></div>
         </div>
@@ -45,7 +46,7 @@ const TaskComponent = ({data}: props) => {
             )}
           </div>
           <p className="text-small margin-top-small">{description}</p>
-          <p className="text-tiny text-bold text-gray text-end">{format({date: createdAt, format: 'medium', locale: "es"})}</p>
+          <p className="text-tiny text-bold text-gray text-end">{format({date: createdAt, format: 'medium', locale: "es"})} {deadLine && `- ${format({date: deadLine, format: 'medium', locale: "es"})}`}</p>
         </div>
       </section>
       <Modal update={modal}>

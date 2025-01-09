@@ -12,6 +12,11 @@
     max-width: 350px;
     width: fit-content;
   }
+  &.pending {
+    .decorator {
+      background-color: var(--color-orange);
+    }
+  }
   &.done {
     .decorator {
       background-color: var(--color-black-25);

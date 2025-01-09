@@ -43,6 +43,9 @@ a{
 .text-blue {
   color: var(--color-blue);
 }
+.text-orange {
+  color: var(--color-orange);
+}
 .text-gray {
   color: var(--color-black-50);
 }

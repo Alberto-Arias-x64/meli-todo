@@ -5,6 +5,7 @@ enum FilterType {
   All = 'ALL',
   IN_PROGRESS = 'IN_PROGRESS',
   DONE = "DONE",
+  PENDING = "PENDING",
 }
 
 interface Props{
@@ -22,6 +23,7 @@ const Filter = ({output}: Props) => {
       <Pill className={`pointer ${value === FilterType.All && "active "}`} onClick={() => handleFilter(FilterType.All)}>Todos</Pill>
       <Pill className={`pointer ${value === FilterType.IN_PROGRESS && "active "}`}onClick={() => handleFilter(FilterType.IN_PROGRESS)}>En proceso</Pill>
       <Pill className={`pointer ${value === FilterType.DONE && "active "}`} onClick={() => handleFilter(FilterType.DONE)}>Completadas</Pill>
+      <Pill className={`pointer ${value === FilterType.PENDING && "active "}`} onClick={() => handleFilter(FilterType.PENDING)}>Pendientes</Pill>
     </div>
   );
 };

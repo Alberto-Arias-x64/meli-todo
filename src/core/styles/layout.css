@@ -63,7 +63,9 @@
 .margin-top-big {
   margin-top: var(--size-16);
 }
-
+.margin-top-huge {
+  margin-top: var(--size-24);
+}
 
 .size-full{
   width: 100%;

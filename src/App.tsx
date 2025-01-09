@@ -1,5 +1,5 @@
 import Filter, { FilterType } from "./core/components/filter/filter";
-import { Itask, ItaskFirebase, Task } from "./core/lib/task";
+import { Itask, ItaskFirebase, Task, TaskStatus } from "./core/lib/task";
 import Category from "./core/components/category/category";
 import { collection, getDocs } from "firebase/firestore";
 import { useStore } from "./core/lib/taskContext";
@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { db } from "./core/lib/firebase";
 import Card from "./core/ui/card/card";
 import "./App.css";
+import { isAfter } from "@formkit/tempo"
 
 function App() {
   const [filter, setFilter] = useState<FilterType>(FilterType.All);
@@ -22,7 +23,9 @@ function App() {
       const docs = await getDocs(ref);
       docs.forEach((doc) => {
         const data = doc.data() as ItaskFirebase
-        fireDate.push({...data, createdAt: data.createdAt.toDate().toISOString(), id: doc.id})
+        const overDeadLine = isAfter(new Date(), data.deadLine?.toDate())
+        const status = data.status === "DONE" ? TaskStatus.DONE : data.status === "IN_PROGRESS" && overDeadLine ? TaskStatus.PENDING : TaskStatus.IN_PROGRESS
+        fireDate.push({...data, createdAt: data.createdAt.toDate().toISOString(), id: doc.id, deadLine: data.deadLine?.toDate().toISOString(), status})
       })
       const tasksList = fireDate.map((task) => {
         const myTask = new Task()
@@ -39,7 +42,7 @@ function App() {
         <Card>
           <div>
             <h1>Gestión de Tareas</h1>
-            <p>Todas las tareas en un solo lugar</p>
+            <p className="margin-top-small">Todas las tareas en un solo lugar</p>
           </div>
           <Form />
           <Filter output={(value) => setFilter(value)}/>
@@ -47,6 +50,7 @@ function App() {
         {filter === FilterType.All && (<Category data={store.tasks}/> )}
         {filter === FilterType.IN_PROGRESS && (<Category category={FilterType.IN_PROGRESS} data={store.tasks.filter(item => item.get().status.includes(FilterType.IN_PROGRESS))}/> )}
         {filter === FilterType.DONE && (<Category category={FilterType.DONE} data={store.tasks.filter(item => item.get().status.includes(FilterType.DONE))}/> )}
+        {filter === FilterType.PENDING && (<Category category={FilterType.PENDING} data={store.tasks.filter(item => item.get().status.includes(FilterType.PENDING))}/> )}
       </main>
       <Footer />
     </section>

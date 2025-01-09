@@ -8,6 +8,7 @@ const mock: Itask[] = [
     description: "Implement JWT-based authentication in the backend.",
     status: TaskStatus.IN_PROGRESS,
     createdAt: "2025-01-08T08:30:00.000Z",
+    deadLine: "2025-01-09T08:30:00.000Z",
   },
   {
     id: "2",
@@ -15,6 +16,7 @@ const mock: Itask[] = [
     description: "Design a responsive landing page using Tailwind CSS.",
     status: TaskStatus.IN_PROGRESS,
     createdAt: "2025-01-06T12:00:00.000Z",
+    deadLine: "2025-01-09T08:30:00.000Z",
   },
   {
     id: "3",
@@ -22,6 +24,7 @@ const mock: Itask[] = [
     description: "Define database tables and relationships for the project.",
     status: TaskStatus.DONE,
     createdAt: "2025-01-05T09:00:00.000Z",
+    deadLine: "2025-01-09T08:30:00.000Z",
   },
   {
     id: "4",
@@ -29,6 +32,7 @@ const mock: Itask[] = [
     description: "Document the API endpoints for developers.",
     status: TaskStatus.IN_PROGRESS,
     createdAt: "2025-01-08T08:45:00.000Z",
+    deadLine: "2025-01-09T08:30:00.000Z",
   }
 ];
 

@@ -4,8 +4,8 @@ import { Task, TaskStatus } from './task';
 interface Context {
   tasks: Task[];
   loadTasks: (tasks: Task[]) => void;
-  addTask: ({title, description}: {title: string, description: string}) => Promise<void>
-  updateTask: ({id, title, description, status}: {id: string, title: string, description: string, status: TaskStatus}) => Promise<void>;
+  addTask: ({title, description, deadLine}: {title: string, description: string, deadLine?: Date}) => Promise<void>
+  updateTask: ({id, title, description, status, deadLine}: {id: string, title: string, description: string, status: TaskStatus, deadLine?: Date}) => Promise<void>;
   removeTask: (id: string) => Promise<void>;
 }
 
