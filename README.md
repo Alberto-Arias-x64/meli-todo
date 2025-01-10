@@ -150,7 +150,20 @@ Cree un ambiente de pruebas para poder mostrar features los cuales no logre term
 
 ## Conclusiones 📝
 
-Es impotente tener varios puntos de vista a la hora de construir un producto digital, ya que lo que yo pensaba que era importare para otros usuarios no tenían la misma percepción.
-Existen librerías que nos ayudan al manejo de fechas como lo es Tempo,
-Vite ofrece una suit de test muy parecida a jest, pero con una sintaxis más simple y un poco más flexible.
-Zustand como gestor de estado es mucho mas simple que redux, y permite manejar el estado de manera más simple.
+La realización de este proyecto permitió aprender y reflexionar sobre varios aspectos del desarrollo frontend:
+
+**Perspectivas de usuario y diseño:** A lo largo del desarrollo, comprendí la importancia de considerar múltiples puntos de vista. Lo que inicialmente consideré crucial para los usuarios resultó ser diferente al explorar sus necesidades reales. Esto refuerza la importancia de realizar pruebas de usuario y recopilar feedback constantemente.
+
+**Gestión de estado con Zustand:** Elegir Zustand como gestor de estado en lugar de opciones más tradicionales como Redux resultó beneficioso por su simplicidad y flexibilidad. Esto facilitó el desarrollo y mejoró la experiencia de mantenimiento del código.
+
+**Uso de Tempo y manejo de fechas:** El manejo de objetos tipo fecha en Javascript suele ser algo complejo, Tempo es una herramienta eficiente para gestionar fechas, simplificando considerablemente la manipulación de datos relacionados.
+
+**Vite y Vitest:** La elección de Vite no solo aceleró el entorno de desarrollo gracias a su rapidez, sino que también proporcionó una suite de pruebas robusta a través de Vitest, cuya sintaxis clara y sencilla facilitó la escritura y mantenimiento de tests.
+
+**Enseñanzas de los principios de diseño:** La implementación de principios como DRY, SOLID y KISS no solo me ayudó a mantener un código limpio y estructurado, sino que también destacó los retos de equilibrar simplicidad y reutilización.
+
+**Documentación y tipado:** Typescript es una tecnología indispensable para mi, no solo por la prevención de errores, sino también por reducir la necesidad de documentar extensamente cada método, gracias al uso de tipados claros y descriptivos.
+
+**Desafíos enfrentados:** Integrar múltiples herramientas y bibliotecas presentó retos iniciales, especialmente en la configuración y compatibilidad. Sin embargo, superar estos desafíos fortaleció mi capacidad de resolución de problemas y adaptabilidad.
+
+Este proyecto me permitió consolidar conocimientos técnicos y aplicar buenas prácticas, brindándome una perspectiva más amplia sobre cómo abordar problemas complejos y desarrollar soluciones escalables.
