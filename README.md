@@ -1,13 +1,13 @@
 # Prueba técnica para Meli :)
 
-Proyecto de presentación de la prueba técnica para desarrollador Frontend 
+Proyecto de presentación de la prueba técnica para desarrollador Frontend.
 
 ## Demo
 [![demo del proyecto](https://meli-todo-production.up.railway.app/screenshot.png)](https://meli-todo-production.up.railway.app/)
 
 ## Objetivos 🎯
 
-- Construir un módulo/aplicación de Gestión de Tareas
+- Construir un módulo/aplicación de Gestión de Tareas.
 
 - Se debe desarrollar uno o varios componentes en React que permita a los usuarios agregar y listar tareas. Debe manejar la gestión del estado para agregar tareas y mostrar una lista de las mismas. También debe incluir funcionalidades de eliminar y marcar tareas como completadas.
 
@@ -40,7 +40,7 @@ npm run dev
 Se aplican los principios de Atomic Design para la estructuración de los componentes que se reutilizan a lo largo de la aplicación.
 
 ### Principios SOLID | Patron repository | Patron factory
-Los principios SOLID me permitieron poder gestionar las tareas como instancias de objetos la cual aplica el patron factory para crear multiples instancias de una clase y el patron repository para manejar los procesos CRUD para la base de datos.
+Los principios SOLID me permitieron poder gestionar las tareas como instancias de objetos la cual aplica el patrón factory para crear múltiples instancias de una clase y el patrón repository para manejar los procesos CRUD para la base de datos.
 
 ### Principio DRY
 Don't Repeat Yourself (DRY) es un principio el cual lo pude aplicar en la creación de los custom hooks para el manejo del estado de los Inputs de la aplicación.
@@ -125,15 +125,15 @@ meli-todo
 ```
 
 ## Test y pruebas 🧪
-Para el desarrollo de los test se realizo con React Testing Library y Vitest, adicionalmente se añade la integración con github actions para que se realice el test previo a la publicación.
+Realicé el desarrollo de los test con React Testing Library y Vitest, adicionalmente añadí la integración con Github actions para que se realice el test previo a la publicación.
 
-Se realizan 3 test sencillos para el componente Task,un test básico de renderizado general de el app, un test de tipo unitario para el componente Task y un test de tipo de integración para agregar tareas en la aplicación.
+Se realizan 3 test sencillos para el componente Task, un test básico de renderizado general de el app, un test de tipo unitario para el componente Task y un test de tipo de integración para agregar tareas en la aplicación.
 
 ![Ejemplo de test](https://meli-todo-production.up.railway.app/tests.png)
 
 ## Documentación del código 💼
 
-Deje unos comentarios en el código (en ingles - buenas practicas) que me permiten separar secciones de mi código, mas sin embargo no considere necesario documentar de manera extensa cada método ya que al usar typescript me facilita saber que tipos de datos estoy esperando tanto de entrada como salida en cada método, ademas de sutilizar siempre nombres descriptivos en métodos y variables que me permiten interpretar que realiza cada función.
+Dejé algunos comentarios en el código (en ingles - buenas prácticas) que me permiten separar secciones de mi código, sin embargo no consideré necesario documentar de manera extensa cada método ya que al usar typescript se me facilita saber qué tipos de datos estoy esperando tanto de entrada como salida en cada método, además de sutilizar siempre nombres descriptivos en métodos y variables que me permiten interpretar que realiza cada función.
 
 ## Próximos pasos 🏁
 
@@ -150,7 +150,7 @@ Cree un ambiente de pruebas para poder mostrar features los cuales no logre term
 
 ## Conclusiones 📝
 
-La realización de este proyecto permitió aprender y reflexionar sobre varios aspectos del desarrollo frontend:
+La realización de este proyecto me permitió aprender y reflexionar sobre varios aspectos del desarrollo frontend:
 
 **Perspectivas de usuario y diseño:** A lo largo del desarrollo, comprendí la importancia de considerar múltiples puntos de vista. Lo que inicialmente consideré crucial para los usuarios resultó ser diferente al explorar sus necesidades reales. Esto refuerza la importancia de realizar pruebas de usuario y recopilar feedback constantemente.
 
